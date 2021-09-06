@@ -16,12 +16,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-	  - name: Set Secrets Variables
-		run: |
+      - name: Set Secrets Variables
+        run: |
           find . -name "*.py" -exec sed -i "s/DISCORD_TOKEN/${{secrets.DISCORD_TOKEN}}/g" {} +
 
-	  - name: Deploy To Heroku
-		uses: akhileshns/heroku-deploy@v3.8.8
-		heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-		heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-		heroku_email: ${{secrets.HEROKU_EMAIL}}
+      - name: Deploy To Heroku
+        uses: akhileshns/heroku-deploy@v3.8.8
+        heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_email: ${{secrets.HEROKU_EMAIL}}
