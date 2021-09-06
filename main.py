@@ -22,7 +22,7 @@ async def on_message(message):
         return
 
     if message.content == "/test":
-        await message.channel.send("Your test has succeeded")
+        await message.channel.send("Your test has succeeded!!")
 
 
 client.run(TOKEN)
