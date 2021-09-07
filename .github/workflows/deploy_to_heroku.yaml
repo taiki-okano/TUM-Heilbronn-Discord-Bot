@@ -19,7 +19,7 @@ jobs:
       - name: Set Secrets Variables
         working-directory: ./
         run: |
-          sed -i "s/GH_SECRETS_DISCORD_TOKEN/${{secrets.DISCORD_TOKEN}}/g" secrets.py +
+          sed -i "s/GH_SECRETS_DISCORD_TOKEN/${{secrets.DISCORD_TOKEN}}/g" secrets.py
 
       - name: Deploy To Heroku
         uses: akhileshns/heroku-deploy@v3.8.8
