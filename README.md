@@ -1,12 +1,16 @@
 # TUM Heilbronn Discord Bot
 
+## TL;DR
+
+This is a bot which runs on a Discord server. [TUM Heilbronn](https://discord.gg/QYtmMSmw)
+
 ## Before Start
 
 This bot is going to run on Heroku. It can be run for free. You need to create your Heroku account at first.
 
 [Heroku](https://id.heroku.com/login)
 
-After creating your account, you can get the API key for your account. To automatically setup the bot with your Heroku account, you need to set it in GitHub Secrets.
+After creating your account, you can get the API key. To automatically setup the bot, you need to set it in GitHub Secrets.
 
 Also, since this is a Discord bot, it requires a token for accessing Discord. You can get it from below.
 
