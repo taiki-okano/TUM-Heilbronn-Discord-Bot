@@ -5,7 +5,7 @@ import json
 SECRETS_STORE_PATH = "./.secrets_store.json"
 
 # List of secrets
-DISCORD_TOKEN = "GH_SECRETS"
+DISCORD_TOKEN = "GH_SECRETS_DISCORD_TOKEN"
 
 
 # For local debug
