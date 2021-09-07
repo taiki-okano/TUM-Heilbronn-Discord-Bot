@@ -1,5 +1,6 @@
 import discord
 import secrets
+from email_sender import send_email
 
 
 client = discord.Client()
@@ -20,8 +21,17 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    if message.content == "/test":
+    message.content = message.content.split()
+
+    if message.content[0] == "/test":
         await message.channel.send("Your test has succeeded!!")
 
+    if message.content[0] == "/mail":
+        await send_email(
+            to_address=message.content[1],
+            subject="TEST",
+            body="Hello World",
+        )
+        await message.channel.send("The email has been sent")
 
 client.run(secrets.DISCORD_TOKEN)

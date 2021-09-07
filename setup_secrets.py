@@ -5,6 +5,10 @@ from secrets import SECRETS_STORE_PATH
 
 secrets = {
     "DISCORD_TOKEN": None,
+    "SMTP_EMAIL": None,
+    "SMTP_HOSTNAME": None,
+    "SMTP_USER": None,
+    "SMTP_PASSWORD": None,
 }
 
 
