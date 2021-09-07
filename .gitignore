@@ -183,4 +183,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-
+# Secrets
+.secrets_store.json

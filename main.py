@@ -1,7 +1,6 @@
 import discord
+import secrets
 
-
-TOKEN = "DISCORD_TOKEN"
 
 client = discord.Client()
 
@@ -25,4 +24,4 @@ async def on_message(message):
         await message.channel.send("Your test has succeeded!!")
 
 
-client.run(TOKEN)
+client.run(secrets.DISCORD_TOKEN)
