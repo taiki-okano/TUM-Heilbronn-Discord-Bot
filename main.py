@@ -105,6 +105,6 @@ async def on_message(message):
                 await message.channel.send("{} Invalid command.".format(message.author.mention))
 
     except Exception:
-        await message.channle.send("{} Unknow error happened.".format(message.author.mention))
+        await message.channel.send("{} Unknow error happened.".format(message.author.mention))
 
 client.run(secrets.DISCORD_TOKEN)
