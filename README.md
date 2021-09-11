@@ -2,7 +2,7 @@
 
 ## TL;DR
 
-This is a bot which runs on a Discord server. [TUM Heilbronn](https://discord.gg/QYtmMSmw)
+This is a bot which runs on a Discord server. [TUM Heilbronn](https://discord.com/channels/879013023107411988/879013023107411992)
 
 ## Before Start
 
