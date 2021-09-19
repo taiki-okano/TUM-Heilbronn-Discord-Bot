@@ -37,12 +37,15 @@ async def on_message(message):
         if message.author.bot or len(message.content) == 0:
             return
 
-        # Give Guest role to people who introduce themselves.
-        guest_role = discord.utils.get(message.guild.roles, name=GUEST_ROLE_NAME)
-        self_introduction_channel = discord.utils.get(message.author.guild.channels, name=SELF_INTRODUCTION_CHANNEL_NAME)
+        try:
+            # Give Guest role to people who introduce themselves.
+            guest_role = discord.utils.get(message.guild.roles, name=GUEST_ROLE_NAME)
+            self_introduction_channel = discord.utils.get(message.author.guild.channels, name=SELF_INTRODUCTION_CHANNEL_NAME)
 
-        if message.channel == self_introduction_channel and not guest_role in message.author.roles:
-            await message.author.add_roles(guest_role)
+            if message.channel == self_introduction_channel and guest_role not in message.author.roles:
+                await message.author.add_roles(guest_role)
+        except AttributeError:
+            pass
 
         message.content = message.content.split()
 
@@ -100,7 +103,7 @@ async def on_message(message):
                             "{} The registration mail has been sent.".format(message.author.mention)
                         )
 
-                if message.content[1].isnumeric():
+                elif message.content[1].isnumeric():
 
                     try:
                         student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)

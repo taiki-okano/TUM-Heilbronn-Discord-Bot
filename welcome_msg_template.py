@@ -1,4 +1,4 @@
-WELCOME_MSG_TEMPLATE="""
+WELCOME_MSG_TEMPLATE = """
 Hello {username}.
 
 Welcome to the TUM Heilbronn Discord server!!
