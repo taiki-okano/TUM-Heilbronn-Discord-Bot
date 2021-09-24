@@ -86,7 +86,7 @@ async def on_message(message):
                     try:
                         await send_email(
                             to_address="{}@mytum.de".format(message.content[1]),
-                            subject="TUM Heiblronn Discord Server Registration",
+                            subject="TUM Heilbronn Discord Server Registration",
                             body=REGISTRATION_MAIL_TEMPLATE.format(
                                 username=message.author.name,
                                 register_code=register_code,
