@@ -17,7 +17,7 @@ SELF_INTRODUCTION_CHANNEL_NAME = "self-introduction"
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-register_codes = {}
+register_codes = []
 
 
 @client.event
@@ -81,9 +81,11 @@ async def on_message(message):
 
                 if message.content[1].isalnum() and not message.content[1].isnumeric():
                     register_code = str(randint(100000, 999999))
-                    register_codes[register_code] = message.author
+                    register_codes.append(register_code)
 
                     try:
+
+                        await message.delete()
                         await send_email(
                             to_address="{}@mytum.de".format(message.content[1]),
                             subject="TUM Heiblronn Discord Server Registration",
@@ -105,15 +107,16 @@ async def on_message(message):
 
                 elif message.content[1].isnumeric():
 
-                    try:
-                        student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
+                    student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
 
-                        await register_codes[message.content[1]].add_roles(student_role)
+                    if message.content[1] in register_codes:
+                        await message.author.add_roles(student_role)
+                        register_codes.remove(message.content[1])
                         await message.channel.send(
                             "{} The student role is added to your account.".format(message.author.mention)
                         )
 
-                    except KeyError:
+                    else:
                         await message.channel.send(
                             "{} The registration code is invalid.".format(message.author.mention)
                         )
