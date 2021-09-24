@@ -112,19 +112,24 @@ async def on_message(message):
 
                 elif message.content[1].isnumeric():
 
-                    student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
+                    try:
+                        student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
 
-                    if message.content[1] in register_codes:
-                        await message.author.add_roles(student_role)
-                        register_codes.remove(message.content[1])
-                        await message.channel.send(
-                            "{} The student role is added to your account.".format(message.author.mention)
-                        )
+                    except AttributeError:
+                        await message.channel.send("{} You need to do that in the server.".format(message.author.mention))
 
                     else:
-                        await message.channel.send(
-                            "{} The registration code is invalid.".format(message.author.mention)
-                        )
+                        if message.content[1] in register_codes:
+                            await message.author.add_roles(student_role)
+                            register_codes.remove(message.content[1])
+                            await message.channel.send(
+                                "{} The student role is added to your account.".format(message.author.mention)
+                            )
+
+                        else:
+                            await message.channel.send(
+                                "{} The registration code is invalid.".format(message.author.mention)
+                            )
 
             except IndexError:
                 await message.channel.send("{} Invalid command.".format(message.author.mention))
