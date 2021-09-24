@@ -85,7 +85,12 @@ async def on_message(message):
 
                     try:
 
-                        await message.delete()
+                        try:
+                            await message.delete()
+
+                        except discord.Forbidden:
+                            pass
+
                         await send_email(
                             to_address="{}@mytum.de".format(message.content[1]),
                             subject="TUM Heilbronn Discord Server Registration",
