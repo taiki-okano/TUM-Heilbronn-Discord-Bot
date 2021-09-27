@@ -5,6 +5,7 @@ from aiosmtplib.errors import SMTPException
 from email_sender import send_email
 from registration_mail_template import REGISTRATION_MAIL_TEMPLATE
 from welcome_msg_template import WELCOME_MSG_TEMPLATE
+from course_specification_template import COURSE_SPECIFICATION_TEMPLATE
 
 
 TUM_STUDENT_ROLE_NAME = "TUM Student"
@@ -14,6 +15,13 @@ REGISTRATION_CHANNEL_NAME = "registration"
 RULES_CHANNEL_NAME = "rules"
 SELF_INTRODUCTION_CHANNEL_NAME = "self-introduction"
 
+COURSE_CODE_TO_ROLENAME = {
+    "IEB": "IE Bachelor",
+    "IEM": "IE Master",
+    "MTB": "MT Bachelor",
+    "MIM": "MI Master",
+    "MAM": "MA Master",
+}
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -133,6 +141,25 @@ async def on_message(message):
 
             except IndexError:
                 await message.channel.send("{} Invalid command.".format(message.author.mention))
+
+        elif message.content[0] == "/course":
+
+            try:
+
+                course_code_to_role = {}
+
+                for code, rolename in COURSE_CODE_TO_ROLENAME.items():
+                    course_code_to_role[code] = discord.utils.get(message.guild.roles, name=rolename)
+
+                await message.author.add_roles(course_code_to_role[message.content[1]])
+                await message.channel.send("{} You are given the `{}` role.".format(message.author.mention,
+                                                                                    course_code_to_role[message.content[1]]))
+
+            except IndexError:
+                await message.channel.send(COURSE_SPECIFICATION_TEMPLATE.format(message.author.mention))
+
+            except KeyError:
+                await message.channel.send("{} Please specify your course.".format(message.author.mention))
 
     except Exception as err:
         await message.channel.send("{} Unknow error happened.".format(message.author.mention))
