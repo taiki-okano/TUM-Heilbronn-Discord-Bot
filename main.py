@@ -146,14 +146,26 @@ async def on_message(message):
 
             try:
 
-                course_code_to_role = {}
+                student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
 
-                for code, rolename in COURSE_CODE_TO_ROLENAME.items():
-                    course_code_to_role[code] = discord.utils.get(message.guild.roles, name=rolename)
+                if student_role in message.author.roles:
 
-                await message.author.add_roles(course_code_to_role[message.content[1]])
-                await message.channel.send("{} You are given the `{}` role.".format(message.author.mention,
-                                                                                    course_code_to_role[message.content[1]]))
+                    course_code_to_role = {}
+
+                    for code, rolename in COURSE_CODE_TO_ROLENAME.items():
+                        course_code_to_role[code] = discord.utils.get(message.guild.roles, name=rolename)
+
+                    await message.author.add_roles(course_code_to_role[message.content[1]])
+                    await message.channel.send(
+                        "{} You are given the `{}` role.".format(
+                            message.author.mention, course_code_to_role[message.content[1]]
+                        )
+                    )
+
+                else:
+                    await message.channel.send(
+                        "{} You need to be registered as a student at first".format(message.author.mention)
+                    )
 
             except IndexError:
                 await message.channel.send(COURSE_SPECIFICATION_TEMPLATE.format(message.author.mention))
