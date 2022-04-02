@@ -62,7 +62,6 @@ async def on_message(message):
             # Email test
             try:
                 if message.content[1] == "mail":
-
                     try:
                         await send_email(
                             to_address=message.content[2],
@@ -92,7 +91,6 @@ async def on_message(message):
                     register_codes.append(register_code)
 
                     try:
-
                         try:
                             await message.delete()
 
@@ -145,7 +143,6 @@ async def on_message(message):
         elif message.content[0] == "/course":
 
             try:
-
                 student_role = discord.utils.get(message.guild.roles, name=TUM_STUDENT_ROLE_NAME)
 
                 if student_role in message.author.roles:
