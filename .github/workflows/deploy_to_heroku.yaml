@@ -26,7 +26,7 @@ jobs:
           sed -i "s/GH_SECRETS_SMTP_PASSWORD/${{secrets.SMTP_PASSWORD}}/g" secrets.py
 
       - name: Deploy To Heroku
-        uses: akhileshns/heroku-deploy@v3.8.8
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
