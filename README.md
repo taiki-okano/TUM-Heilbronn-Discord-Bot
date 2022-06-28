@@ -1,5 +1,7 @@
 # TUM Heilbronn Discord Bot
 
+[![Deploy](https://github.com/taiki-okano/TUM-Heilbronn-Discord-Bot/actions/workflows/deploy_to_heroku.yaml/badge.svg)](https://github.com/taiki-okano/TUM-Heilbronn-Discord-Bot/actions/workflows/deploy_to_heroku.yaml)
+
 ## TL;DR
 
 This is a bot which runs on a Discord server. [TUM Heilbronn](https://discord.com/channels/879013023107411988/879013023107411992)
