@@ -7,9 +7,10 @@ This server is for students and prospective students of TUM at the Heilbronn cam
 
 These are the basic rules:
 ```
-1. No racism. We are going to ban racists as soon as we find.
+1. No racism. We are going to ban any racist as soon as we find.
 2. Use English or languages which everyone involved can understand.
 3. Talk in the appropriate channels. For example, you are not supposed to start chatting in #information.
+4. Understand Vim is the best editor ever of all.
 ```
 Please check the details in {rules_channel}.
 
