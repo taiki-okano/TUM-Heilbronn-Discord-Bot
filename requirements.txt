@@ -1,2 +1,2 @@
-discord.py
+py-cord==2.2.0
 aiosmtplib

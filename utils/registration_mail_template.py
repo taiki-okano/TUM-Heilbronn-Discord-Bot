@@ -9,5 +9,5 @@ Please send the message below in the #registration channel to register yourself 
 If you have any problem regarding to this registering process, please contact taiki#2104 on Discord or <taiki.okano@tum.de>.
 
 Kind regards,
-Your TUM Heilbronn Discord server maintainance team (mainly me).
+Your TUM Heilbronn Discord server maintenance team (mainly me).
 """
