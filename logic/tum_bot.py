@@ -9,7 +9,7 @@ from aiosmtplib.errors import SMTPException
 # Bot initialization
 tum_bot = commands.Bot(
     intents=discord.Intents.all(),
-    status=discord.Status.streaming,
+    status=discord.Status.online,
     activity=discord.Activity(
         type=discord.ActivityType.listening, name="I love TUM!")
 )
